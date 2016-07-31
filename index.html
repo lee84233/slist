@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>模拟select下拉选框插件</title>
+  <meta name="keywords" content="select美化，下拉选框">
+  <meta name="description" content="模拟select下拉选框插件，select美化的下拉选框">
+  <link rel="stylesheet" href="css/selectlist-lc.css">
+  <style>
+  *{ padding:0;margin:0; }
+  .lc-select,.info{
+    margin-top:200px;
+    margin-left:100px;
+  }
+  </style>
+</head>
+<body>
+
+<div class="lc-select lc-select1" data-name="lc-select">
+  <p class="lc-select-title">选择发布时间</p>
+  <ul class="lc-select-ul">
+    <li class="lc-select-li" data-value="0">发布时间不限</li>
+    <li class="lc-select-li" data-value="1">一天内发布</li>
+    <li class="lc-select-li" data-value="2">三天内发布</li>
+    <li class="lc-select-li" data-value="3">一周内发布</li>
+    <li class="lc-select-li" data-value="4">一个月内发布</li>
+    <li class="lc-select-li" data-value="5">三个月内发布</li>
+    <li class="lc-select-li" data-value="6">半年内发布</li>
+  </ul>
+  <!-- input 用于表单提交 -->
+  <input class="lc-select-input" type="hidden" name="keywords" />
+</div>
+
+<p class="info"></p>
+
+<script src="/public/js/jquery-1.12.4.min.js"></script>
+<script src="js/selectlist-lc.js"></script>
+<script>
+$(document).ready(function() {
+  // options
+  var options = {
+    showNum:5
+  };
+  // selectList
+  $('.lc-select1').selectList({
+    animated:'slide', // 显示动画 slide | fade | normal(默认)
+    showNum:2,          //初始显示li的索引值,从1开始
+    speed:200,            //动画时长 default:400
+    maxNum:6, //最多显示li的个数 默认5个
+    changeLi:function(txt,val){  //改变时回调函数
+      $('.info').html('文本:' + txt + '<br />value:' + val);
+    }
+  });
+
+});
+</script>
+</body>
+</html>
