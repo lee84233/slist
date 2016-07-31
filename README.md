@@ -59,10 +59,11 @@ $(document).ready(function() {
 $('.lc-select').selectList('destroy');
 ```
     下拉功能失效，清除selectList的options选项
-2.init：初始化
+2.init：初始化（已失效）
 ```javascript
 var options = {
   showNum:3
 };
 $('.lc-select').selectList({'init':options});
 ```
+    失效，可通过销毁，重新定义的方式初始化
